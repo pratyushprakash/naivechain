@@ -2,7 +2,6 @@ from hashlib import sha256
 import logging
 import datetime
 
-
 REPLACE_CODE, NO_REPLACE_CODE = (0, 1)
 
 
@@ -92,4 +91,3 @@ def replaceChain(newBlocks):
     else:
         logging.warning('Recieved block is invalid!')
         return NO_REPLACE_CODE
-
