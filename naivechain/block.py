@@ -40,10 +40,9 @@ def generateNextBlock(blockData):
 
 
 def getGenesisBlock():
-    t = datetime.datetime.now()
-    return Block(0, "0", t,
+    return Block(0, "0", '0',
                  "Genesis Block!",
-                 calculateHash(0, '0', t, "Genesis Block!")
+                 calculateHash(0, '0', '0', "Genesis Block!")
                  )
 
 
