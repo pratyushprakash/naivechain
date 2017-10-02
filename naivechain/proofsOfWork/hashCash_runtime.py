@@ -24,29 +24,31 @@ def check_runtime(input_str, difficulty, digit):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-df', '--difficulty', type=int,
-                        help='The number of repetitions of the digit in the beginning of the hash.')
-    parser.add_argument('-dg', '--digit', type=int, help='The digit that is to be repeated at the start of the hash.')
+                        help='The number of repetitions of the digit in the beginning of the hash.', default=3)
+    parser.add_argument('-dg', '--digit', type=int, help='The digit that is to be repeated at the start of the hash.',
+                        default=0)
     parser.add_argument('-str', '--stringToHash', type=str,
                         help='The string that is it to be used to hash and whose hash has to fulfill the conditions '
-                             'specified as arguments.')
+                             'specified as arguments.', default='hello world')
     args_list = parser.parse_args()
-    try:
-        if not bool(args_list.difficulty):
-            raise Exception
-        difficulty = args_list.difficulty
-    except Exception:
-        difficulty = 3
-    try:
-        if not bool(args_list.digit):
-            raise Exception
-        digit = args_list.digit
-    except Exception:
-        digit = 0
-    try:
-        if not bool(args_list.stringToHash):
-            raise Exception
-        input_str = args_list.stringToHash
-    except Exception:
-        input_str = 'hello world'
-
-    check_runtime(input_str, difficulty, digit)
+    # use the below code to enable for the logging in later instance
+    # try:
+    #     if not bool(args_list.difficulty):
+    #         raise Exception
+    #     difficulty = args_list.difficulty
+    # except Exception:
+    #     difficulty = 3
+    # try:
+    #     if not bool(args_list.digit):
+    #         raise Exception
+    #     digit = args_list.digit
+    # except Exception:
+    #     digit = 0
+    # try:
+    #     if not bool(args_list.stringToHash):
+    #         raise Exception
+    #     input_str = args_list.stringToHash
+    # except Exception:
+    #     input_str = 'hello world'
+    # check_runtime(input_str, difficulty, digit)
+    check_runtime(args_list.stringToHash, args_list.difficulty, args_list.digit)
